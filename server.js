@@ -6,9 +6,11 @@ const path = require("path");
 const errorMiddleware = require("./middlewares/error.middleware");
 const postRoute = require("./routes/post.route");
 const commentRoute = require("./routes/comment.route");
+const cors = require("cors")
 
 const app = express()
 
+app.use(cors())
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));

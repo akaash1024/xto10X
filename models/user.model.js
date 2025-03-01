@@ -23,7 +23,11 @@ const userSchema = new mongoose.Schema(
 );
 
 
-
+userSchema.virtual("postRef", {
+    ref: "Post",
+    localField: "posts",
+    foreignField: "_id"
+  })
 
 
 
