@@ -5,6 +5,7 @@ const authRoute = require("./routes/auth.route");
 const path = require("path");
 const errorMiddleware = require("./middlewares/error.middleware");
 const postRoute = require("./routes/post.route");
+const commentRoute = require("./routes/comment.route");
 
 const app = express()
 
@@ -22,6 +23,7 @@ app.get("/", (req, res) => {
 
 app.use("/api/auth", authRoute);
 app.use("/api/post", postRoute);
+app.use("/api/comment", commentRoute);
 
 
 

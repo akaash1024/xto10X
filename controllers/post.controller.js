@@ -12,7 +12,6 @@ const createPost = async (req, res, next) => {
 }
 
 
-
 const getPost = async (req, res, next) => {
     try {
         const post = await Post.find({})
