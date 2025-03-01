@@ -1,0 +1,62 @@
+const Post = require("../models/post.model");
+
+const createPost = async (req, res, next) => {
+    const { title, description, } = req.body
+    const userID = req.userID;
+    try {
+        const newPost = await Post.create({ title, description, createdBy: userID })
+        res.status(201).json({ success: true, message: "Post creataed successfully", newPost })
+    } catch (error) {
+        next(error);
+    }
+}
+
+
+
+const getPost = async (req, res, next) => {
+    try {
+        const post = await Post.find({})
+        res.status(200).json({ success: true, message: "Post fetched successfully", post })
+    } catch (error) {
+        next(error);
+    }
+}
+
+const getPostbyId = async (req, res, next) => {
+    const { id } = req.params
+    try {
+        const post = await Post.findById({ _id: id })
+        res.status(200).json({ success: true, message: "Post fetched successfully", post })
+    } catch (error) {
+        next(error);
+    }
+}
+const updatePost = async (req, res, next) => {
+    const { id } = req.params
+
+    try {
+        const post = await Post.findByIdAndUpdate({ _id: id }, req.body, { new: true })
+        res.status(200).json({ success: true, message: "Post updated successfully", post })
+
+    } catch (error) {
+        next(error);
+    }
+}
+const deletePost = async (req, res, next) => {
+    const { id } = req.params
+
+    try {
+        const post = await Post.findByIdAndDelete({ _id: id })
+        res.status(200).json({ success: true, message: "Post deleleted successfully", post })
+    } catch (error) {
+        next(error);
+    }
+}
+
+module.exports = {
+    createPost,
+    getPost,
+    updatePost,
+    deletePost,
+    getPostbyId
+}
