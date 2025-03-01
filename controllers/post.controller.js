@@ -6,7 +6,7 @@ const createPost = async (req, res, next) => {
     const userID = req.userID;
     try {
         const newPost = await Post.create({ title, description, createdBy: userID })
-        
+
         await User.findByIdAndUpdate(userID, { $push: { posts: newPost._id } });
 
         res.status(201).json({ success: true, message: "Post creataed successfully", newPost })
@@ -19,8 +19,8 @@ const createPost = async (req, res, next) => {
 const getPost = async (req, res, next) => {
     try {
         const posts = await Post.find()
-            .populate("commentRef") 
-            .populate("createdBy", "name") 
+            .populate("commentRef")
+            .populate("createdBy", "name")
 
         res.status(200).json({ success: true, message: "Posts fetched successfully", posts });
     } catch (error) {
@@ -32,6 +32,8 @@ const getPostbyId = async (req, res, next) => {
     const { id } = req.params
     try {
         const post = await Post.findById({ _id: id })
+            .populate("commentRef")
+            .populate("createdBy", "name")
         res.status(200).json({ success: true, message: "Post fetched successfully", post })
     } catch (error) {
         next(error);
@@ -52,14 +54,14 @@ const deletePost = async (req, res, next) => {
     const { id } = req.params;
 
     try {
-        
+
         const post = await Post.findById(id);
         if (!post) {
             return res.status(404).json({ success: false, message: "Post not found" });
         }
 
         await User.findByIdAndUpdate(post.createdBy, { $pull: { posts: post._id } });
-        
+
         await Post.findByIdAndDelete(id);
 
         res.status(200).json({ success: true, message: "Post deleted successfully" });

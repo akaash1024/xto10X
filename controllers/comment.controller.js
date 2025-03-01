@@ -23,7 +23,7 @@ const createComment = async (req, res, next) => {
 
 const getComment = async (req, res, next) => {
     try {
-        const comments = await Comment.find({}).populate("commentedBy", "name",);;
+        const comments = await Comment.find({}).populate("commentedBy", "name",);
 
         res.status(200).json({ success: true, message: "Comments fetched successfully", comments });
     } catch (error) {
@@ -43,6 +43,21 @@ const getCommentbyId = async (req, res, next) => {
         next(error);
     }
 };
+
+
+const getCommentbyPostId = async (req, res, next) => {
+    const { id } = req.params; 
+    try {
+        const comments = await Comment.find({ postId: id }).populate("commentedBy");
+        if (!comments.length) {
+            return res.status(404).json({ success: false, message: "No comments found for this post" });
+        }
+        res.status(200).json({ success: true, message: "Comments fetched successfully", comments });
+    } catch (error) {
+        next(error);
+    }
+};
+
 
 const updateComment = async (req, res, next) => {
     const { id } = req.params;
@@ -83,4 +98,5 @@ module.exports = {
     updateComment,
     deleteComment,
     getCommentbyId,
+    getCommentbyPostId
 };
