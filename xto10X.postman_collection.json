@@ -1,0 +1,603 @@
+{
+	"info": {
+		"_postman_id": "20a62d3b-329d-4147-a6cd-cf09d2c9c19a",
+		"name": "xto10X",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37564071",
+		"_collection_link": "https://logn99.postman.co/workspace/9513deb8-6687-4d45-8b94-9cd7517f5271/collection/37564071-20a62d3b-329d-4147-a6cd-cf09d2c9c19a?action=share&source=collection_link&creator=37564071"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"dikhya\",\r\n    \"email\": \"dikhya@gmail.com\",\r\n    \"password\": \"dikhya\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \r\n    \"email\": \"dikhya@gmail.com\",\r\n    \"password\": \"dikhya\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2MyZjE3ZWVmMDUyZTVkYjEyNjVjOTQiLCJlbWFpbCI6ImFrYXNoQGdtYWlsLmNvbSIsImlhdCI6MTc0MDgyOTEwMSwiZXhwIjoxNzQzNDIxMTAxfQ.ry-k6CUNvNFfUtzz2jApakfMG6m6Mjc51zab4HvCFQQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/auth/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"auth",
+								"user"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "post",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2MyZjE3ZWVmMDUyZTVkYjEyNjVjOTQiLCJlbWFpbCI6ImFrYXNoQGdtYWlsLmNvbSIsImlhdCI6MTc0MDgyOTEwMSwiZXhwIjoxNzQzNDIxMTAxfQ.ry-k6CUNvNFfUtzz2jApakfMG6m6Mjc51zab4HvCFQQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"MongoDB\",\r\n    \"description\": \"lorem10\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/post/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"post",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2MyOGMwMTI0OTZlMWVlY2M3MzlmY2MiLCJlbWFpbCI6ImFrYXNoQGdtYWlsLmNvbSIsImlhdCI6MTc0MDgwNDYwNCwiZXhwIjoxNzQzMzk2NjA0fQ.7R0DATe0TNr4e6XkfC4EHcfdj3sjWDM_I-2qX0LY39c",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/post/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"post",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getById",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2MyOGMwMTI0OTZlMWVlY2M3MzlmY2MiLCJlbWFpbCI6ImFrYXNoQGdtYWlsLmNvbSIsImlhdCI6MTc0MDgwNDYwNCwiZXhwIjoxNzQzMzk2NjA0fQ.7R0DATe0TNr4e6XkfC4EHcfdj3sjWDM_I-2qX0LY39c",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/post/67c2ed6c6ec4d48feefde022",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"post",
+								"67c2ed6c6ec4d48feefde022"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2MyOGMwMTI0OTZlMWVlY2M3MzlmY2MiLCJlbWFpbCI6ImFrYXNoQGdtYWlsLmNvbSIsImlhdCI6MTc0MDgwNDYwNCwiZXhwIjoxNzQzMzk2NjA0fQ.7R0DATe0TNr4e6XkfC4EHcfdj3sjWDM_I-2qX0LY39c",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"modifying second post\"\r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/post/update/67c29578f02c57d91b8ee9d5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"post",
+								"update",
+								"67c29578f02c57d91b8ee9d5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2MyOGMwMTI0OTZlMWVlY2M3MzlmY2MiLCJlbWFpbCI6ImFrYXNoQGdtYWlsLmNvbSIsImlhdCI6MTc0MDgwNDYwNCwiZXhwIjoxNzQzMzk2NjA0fQ.7R0DATe0TNr4e6XkfC4EHcfdj3sjWDM_I-2qX0LY39c",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Hello World\",\r\n    \"description\": \"Hello this is i am testing for collaboration project\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/post/delete/67c2ed6c6ec4d48feefde022",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"post",
+								"delete",
+								"67c2ed6c6ec4d48feefde022"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "comment",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2MyZjE5NGVmMDUyZTVkYjEyNjVjOWEiLCJlbWFpbCI6ImRpa2h5YUBnbWFpbC5jb20iLCJpYXQiOjE3NDA4Mjk1MDYsImV4cCI6MTc0MzQyMTUwNn0.WrQZgF8BbeQX9CnNpBao70KEVPFsy0F2Q18NCDHoAcA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"commentedInput\": \"My favorite database hahahahah by\",\r\n    \"postId\": \"67c2f2f0b4f0574e2b36104b\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/comment/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"comment",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2MyOGMwMTI0OTZlMWVlY2M3MzlmY2MiLCJlbWFpbCI6ImFrYXNoQGdtYWlsLmNvbSIsImlhdCI6MTc0MDgwNTQ1NCwiZXhwIjoxNzQzMzk3NDU0fQ.nVYyCWhfLr5zs1ySqRWFCepBlcSa7OLBG3wFBzb4Wp4",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/comment/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"comment",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getById",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2MyOGMwMTI0OTZlMWVlY2M3MzlmY2MiLCJlbWFpbCI6ImFrYXNoQGdtYWlsLmNvbSIsImlhdCI6MTc0MDgwNTQ1NCwiZXhwIjoxNzQzMzk3NDU0fQ.nVYyCWhfLr5zs1ySqRWFCepBlcSa7OLBG3wFBzb4Wp4",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/comment/67c2ac1796b6ae2bf3f0612e",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"comment",
+								"67c2ac1796b6ae2bf3f0612e"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2MyOGMwMTI0OTZlMWVlY2M3MzlmY2MiLCJlbWFpbCI6ImFrYXNoQGdtYWlsLmNvbSIsImlhdCI6MTc0MDgwNTQ1NCwiZXhwIjoxNzQzMzk3NDU0fQ.nVYyCWhfLr5zs1ySqRWFCepBlcSa7OLBG3wFBzb4Wp4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"commentedInput\": \"updating for testing purpose\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/comment/update/67c2ac1796b6ae2bf3f0612e",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"comment",
+								"update",
+								"67c2ac1796b6ae2bf3f0612e"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2MyOGMwMTI0OTZlMWVlY2M3MzlmY2MiLCJlbWFpbCI6ImFrYXNoQGdtYWlsLmNvbSIsImlhdCI6MTc0MDgwNTQ1NCwiZXhwIjoxNzQzMzk3NDU0fQ.nVYyCWhfLr5zs1ySqRWFCepBlcSa7OLBG3wFBzb4Wp4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/comment/delete/67c2ac1796b6ae2bf3f0612e",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"comment",
+								"delete",
+								"67c2ac1796b6ae2bf3f0612e"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
