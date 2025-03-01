@@ -22,7 +22,7 @@ const isAuthenicated = async (req, res, next) => {
     try {
         const isVerified = jwt.verify(jwtToken, process.env.JWT_SECRET_KEY);
 
-        const userData = await User.findOne({ email: isVerified.email }).select("-password");
+        const userData = await User.findOne({ email: isVerified.email }, "-password -__v -createdAt -id").populate("postRef", "-__v -createdAt -createdBy");
 
         if (!userData) {
             return res.status(404).json({ message: "User not found" });

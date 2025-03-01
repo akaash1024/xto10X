@@ -65,7 +65,8 @@ const login = async (req, res, next) => {
 
 const user = async (req, res, next) => {
   try {
-    const userData = req.user;
+    let userData = req.user;
+    
     return res.status(200).json({
       success: true,
       message: "User details fetched successfully.",

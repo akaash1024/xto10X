@@ -15,6 +15,9 @@ authRoute
 authRoute.
   route("/user").
   get(isAuthenicated, authController.user);
+  
+
+  
 
 
 module.exports = authRoute;

@@ -13,14 +13,6 @@ const postSchema = new mongoose.Schema({
 })
 
 
-
-postSchema.virtual("commentRef", {
-    ref: "Comment",
-    localField: "comments",
-    foreignField: "_id"
-  })
-
-
 const Post = mongoose.model("Post", postSchema);
 
 module.exports = Post;
