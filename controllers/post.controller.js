@@ -15,18 +15,19 @@ const createPost = async (req, res, next) => {
     }
 }
 
-
 const getPost = async (req, res, next) => {
     try {
         const posts = await Post.find()
+            .sort({ _id: -1 })
             .populate("commentRef")
-            .populate("createdBy", "name")
+            .populate("createdBy", "name");
 
         res.status(200).json({ success: true, message: "Posts fetched successfully", posts });
     } catch (error) {
         next(error);
     }
 };
+
 
 const getPostbyId = async (req, res, next) => {
     const { id } = req.params
