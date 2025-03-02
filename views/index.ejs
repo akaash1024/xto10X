@@ -1,14 +1,444 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Social Collaboration</title>
-  </head>
-  <body>
-    <h1>Social Collaboration Server</h1>
-    <p>
-      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nihil, repellat.
-    </p>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>XTO10X Backend Documentation</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #f8f9fa;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    
+    header {
+      background-color: #2d3748;
+      color: white;
+      padding: 2rem 0;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    h2 {
+      font-size: 1.8rem;
+      margin: 2rem 0 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid #eaeaea;
+    }
+    
+    h3 {
+      font-size: 1.4rem;
+      margin: 1.5rem 0 1rem;
+    }
+    
+    p {
+      margin-bottom: 1rem;
+    }
+    
+    a {
+      color: #3182ce;
+      text-decoration: none;
+    }
+    
+    a:hover {
+      text-decoration: underline;
+    }
+    
+    ul, ol {
+      padding-left: 2rem;
+      margin-bottom: 1rem;
+    }
+    
+    li {
+      margin-bottom: 0.5rem;
+    }
+    
+    code, pre {
+      font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+      background-color: #f1f1f1;
+      border-radius: 3px;
+    }
+    
+    code {
+      padding: 0.2rem 0.4rem;
+      font-size: 0.9rem;
+    }
+    
+    pre {
+      padding: 1rem;
+      overflow: auto;
+      margin-bottom: 1rem;
+      border-radius: 5px;
+    }
+    
+    pre code {
+      padding: 0;
+      background-color: transparent;
+    }
+    
+    .endpoint {
+      background-color: #fff;
+      border-radius: 5px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+    
+    .endpoint code {
+      font-weight: bold;
+      color: #3182ce;
+    }
+    
+    .schema {
+      margin-bottom: 2rem;
+    }
+    
+    .author {
+      text-align: center;
+      margin-top: 3rem;
+      padding-top: 1rem;
+      border-top: 1px solid #eaeaea;
+    }
+    
+    footer {
+      text-align: center;
+      padding: 2rem 0;
+      background-color: #2d3748;
+      color: white;
+      margin-top: 2rem;
+    }
+    
+    .api-method {
+      display: inline-block;
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+      font-weight: bold;
+      margin-right: 0.5rem;
+      font-size: 0.8rem;
+    }
+    
+    .get {
+      background-color: #38a169;
+      color: white;
+    }
+    
+    .post {
+      background-color: #3182ce;
+      color: white;
+    }
+    
+    .put, .patch {
+      background-color: #d69e2e;
+      color: white;
+    }
+    
+    .delete {
+      background-color: #e53e3e;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>XTO10X Backend</h1>
+      <p>API Documentation for the Social Collaboration Platform</p>
+      <a href="https://xto10x.onrender.com/" target="_blank" style="color: white; text-decoration: underline;">Live API: https://xto10x.onrender.com/</a>
+    </div>
+  </header>
+
+  <div class="container">
+    <section id="overview">
+      <h2>Overview</h2>
+      <p>This is the backend server for the XTO10X social collaboration platform. It provides API endpoints for user authentication, post management, comments, and other features required by the frontend application.</p>
+    </section>
+
+    <section id="tech-stack">
+      <h2>Tech Stack</h2>
+      <ul>
+        <li><strong>Node.js</strong>: Runtime environment</li>
+        <li><strong>Express.js</strong>: Web application framework</li>
+        <li><strong>MongoDB</strong>: NoSQL database</li>
+        <li><strong>Mongoose</strong>: MongoDB object modeling</li>
+        <li><strong>JWT</strong>: JSON Web Tokens for authentication</li>
+        <li><strong>bcrypt</strong>: Password hashing</li>
+        <li><strong>cors</strong>: Cross-Origin Resource Sharing middleware</li>
+        <li><strong>dotenv</strong>: Environment variable management</li>
+      </ul>
+    </section>
+
+    <section id="api-endpoints">
+      <h2>API Endpoints</h2>
+
+      <div id="auth-endpoints">
+        <h3>Authentication</h3>
+        
+        <div class="endpoint">
+          <span class="api-method post">POST</span>
+          <code>/api/auth/register</code>
+          <p>Register a new user</p>
+        </div>
+        
+        <div class="endpoint">
+          <span class="api-method post">POST</span>
+          <code>/api/auth/login</code>
+          <p>Authenticate a user and receive JWT token</p>
+        </div>
+        
+        <div class="endpoint">
+          <span class="api-method get">GET</span>
+          <code>/api/auth/user</code>
+          <p>Get current active/logged-in user</p>
+        </div>
+      </div>
+
+      <div id="posts-endpoints">
+        <h3>Posts</h3>
+        
+        <div class="endpoint">
+          <span class="api-method get">GET</span>
+          <code>/api/posts</code>
+          <p>Get all posts</p>
+        </div>
+        
+        <div class="endpoint">
+          <span class="api-method get">GET</span>
+          <code>/api/posts/:id</code>
+          <p>Get a specific post by ID</p>
+        </div>
+        
+        <div class="endpoint">
+          <span class="api-method post">POST</span>
+          <code>/api/posts/create</code>
+          <p>Create a new post (requires authentication)</p>
+        </div>
+        
+        <div class="endpoint">
+          <span class="api-method put">PUT</span>
+          <code>/api/posts/update/:id</code>
+          <p>Update a post (requires authentication)</p>
+        </div>
+        
+        <div class="endpoint">
+          <span class="api-method delete">DELETE</span>
+          <code>/api/posts/delete/:id</code>
+          <p>Delete a post (requires authentication)</p>
+        </div>
+      </div>
+
+      <div id="comments-endpoints">
+        <h3>Comments</h3>
+        
+        <div class="endpoint">
+          <span class="api-method get">GET</span>
+          <code>/api/comments</code>
+          <p>Get all comments</p>
+        </div>
+        
+        <div class="endpoint">
+          <span class="api-method get">GET</span>
+          <code>/api/posts/getById/:id</code>
+          <p>Get all comments for a post</p>
+        </div>
+        
+        <div class="endpoint">
+          <span class="api-method get">GET</span>
+          <code>/api/posts/getByPostId/:id</code>
+          <p>Get all comments for a post</p>
+        </div>
+        
+        <div class="endpoint">
+          <span class="api-method post">POST</span>
+          <code>/api/posts/comments/create</code>
+          <p>Add a comment to a post (requires authentication)</p>
+        </div>
+        
+        <div class="endpoint">
+          <span class="api-method patch">PATCH</span>
+          <code>/api/comments/update/:id</code>
+          <p>Update a comment (requires authentication)</p>
+        </div>
+        
+        <div class="endpoint">
+          <span class="api-method delete">DELETE</span>
+          <code>/api/comments/delete/:id</code>
+          <p>Delete a comment (requires authentication)</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="database-schema">
+      <h2>Database Schema</h2>
+
+      <div class="schema">
+        <h3>User Schema</h3>
+        <pre><code class="language-javascript">{
+  username: { type: String, required: true, unique: true },
+  email: { type: String, required: true, unique: true },
+  password: { type: String, required: true },
+  posts: [{ type: mongoose.Schema.Types.ObjectId, ref: "Post" },],
+}</code></pre>
+      </div>
+
+      <div class="schema">
+        <h3>Post Schema</h3>
+        <pre><code class="language-javascript">{
+    title: { type: String, },
+    description: { type: String, },
+    createdBy: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
+    comments: [{type: mongoose.Schema.Types.ObjectId, ref: "Comment"}]
+}</code></pre>
+      </div>
+
+      <div class="schema">
+        <h3>Comment Schema</h3>
+        <pre><code class="language-javascript">{
+  commentedInput: { type: String, },
+  commentedBy: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
+  postId: { type: mongoose.Schema.Types.ObjectId, ref: "Post" }
+}</code></pre>
+      </div>
+    </section>
+
+    <section id="env-variables">
+      <h2>Environment Variables</h2>
+      <p>Create a <code>.env</code> file in the root directory with the following variables:</p>
+      <pre><code>JWT_SECRET=your_jwt_secret_key
+PORT = 3000
+MONGO_URL = mongodb+srv://&lt;username&gt;:&lt;password&gt;@cluster0.mongodb.net/xto10x</code></pre>
+    </section>
+
+    <section id="installation">
+      <h2>Installation and Setup</h2>
+
+      <ol>
+        <li>
+          <p>Clone the repository:</p>
+          <pre><code class="language-bash">git clone https://github.com/akaash1024/xto10X
+cd FExto10X/backend (if needed)</code></pre>
+        </li>
+
+        <li>
+          <p>Install dependencies:</p>
+          <pre><code class="language-bash">npm install</code></pre>
+        </li>
+
+        <li>
+          <p>Set up environment variables:</p>
+          <pre><code class="language-bash">cp .env.example .env
+# Edit the .env file with your MongoDB connection string and JWT secret</code></pre>
+        </li>
+
+        <li>
+          <p>Start the development server:</p>
+          <pre><code class="language-bash"># Development mode with nodemon
+npm run dev
+
+# Production mode
+npm start</code></pre>
+        </li>
+      </ol>
+    </section>
+
+    <section id="api-docs">
+      <h2>API Documentation</h2>
+
+      <div>
+        <h3>Authentication</h3>
+        
+        <h4>Register a new user</h4>
+        <pre><code>POST /api/auth/register</code></pre>
+        <p>Request body:</p>
+        <pre><code class="language-json">{
+    "name": "dikhya",
+    "email": "dikhya@gmail.com",
+    "password": "dikhya"
+}</code></pre>
+
+        <h4>Login</h4>
+        <pre><code>POST /api/auth/login</code></pre>
+        <p>Request body:</p>
+        <pre><code class="language-json">{
+    "email": "adarsh@gmail.com",
+    "password": "adarsh"
+}</code></pre>
+        <p>Response:</p>
+        <pre><code class="language-json">{
+  "token": "jwt_token_here",
+  "user": {
+    "id": "user_id",
+    "username": "user123",
+    "email": "user@example.com"
+  }
+}</code></pre>
+      </div>
+    </section>
+
+    <section id="middleware">
+      <h2>Middleware</h2>
+      <ul>
+        <li><code>auth.js</code>: JWT authentication middleware that verifies the token in request headers</li>
+      </ul>
+    </section>
+
+    <section id="error-handling">
+      <h2>Error Handling</h2>
+      <p>The API uses consistent error responses:</p>
+      <pre><code class="language-json">{
+  "success": false,
+  "message": "Error message here"
+}</code></pre>
+    </section>
+
+    <section id="security">
+      <h2>Security Measures</h2>
+      <ul>
+        <li>Password hashing with bcrypt</li>
+        <li>JWT for secure authentication</li>
+        <li>Input validation and sanitization</li>
+        <li>Rate limiting for API endpoints</li>
+        <li>CORS configuration</li>
+      </ul>
+    </section>
+
+    <section id="deployment">
+      <h2>Deployment</h2>
+      <p>This backend is deployed on Render at <a href="https://xto10x.onrender.com/" target="_blank">https://xto10x.onrender.com/</a></p>
+    </section>
+
+    <div class="author">
+      <h2>Author</h2>
+      <p><strong>Akash</strong></p>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <p>&copy; <%= new Date().getFullYear() %> XTO10X - All Rights Reserved</p>
+    </div>
+  </footer>
+</body>
 </html>

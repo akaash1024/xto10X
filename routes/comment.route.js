@@ -6,7 +6,7 @@ const commentController = require("../controllers/comment.controller")
 
 
 
-commentRoute.route("/create/").post(isAuthenicated, commentController.createComment)
+commentRoute.route("/create").post(isAuthenicated, commentController.createComment)
 
 commentRoute.route("/get").get(commentController.getComment)
 commentRoute.route("/getById/:id").get(commentController.getCommentbyId)
